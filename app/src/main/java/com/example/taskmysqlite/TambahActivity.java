@@ -80,7 +80,7 @@ public class TambahActivity extends AppCompatActivity {
     private void insertData() {
         String valNama = name.getText().toString().trim();
         String valPrice = price.getText().toString().trim();
-        String valType = type.getTransitionName().toString().trim();
+        String valType = type.getText().toString().trim();
 
         ContentValues values = new ContentValues();
         values.put(DatabaseHelper.GAMES_IMAGE, ImageViewToByte(gamePicture));

@@ -45,7 +45,7 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ViewHolder> {
     @Override
     public GameAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.item_games, parent, false);
+        View view = inflater.inflate(R.layout.item_games, null);
         return new ViewHolder(view);
     }
 
@@ -53,7 +53,7 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull GameAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         final Game game = gameArrayList.get(position);
         byte[] imageGame = game.getGamePicture();
-        Bitmap bitmap= BitmapFactory.decodeByteArray(imageGame,0, imageGame.length);
+        Bitmap bitmap = BitmapFactory.decodeByteArray(imageGame,0, imageGame.length);
         holder.imgGame.setImageBitmap(bitmap);
         holder.txtNameGame.setText(game.getNamaGame());
         holder.txtPrice.setText(game.getPriceGame());
@@ -77,7 +77,7 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ViewHolder> {
                                 bundle.putString(DatabaseHelper.GAMES_NAME, game.getNamaGame());
                                 bundle.putString(DatabaseHelper.GAMES_PRICE, game.getPriceGame());
                                 bundle.putString(DatabaseHelper.GAMES_TYPE, game.getTypeGame());
-                                Intent intent = new Intent(context,MainActivity.class);
+                                Intent intent = new Intent(context,EditActivity.class);
                                 intent.putExtra("userdata", bundle);
                                 context.startActivity(intent);
                                 break;

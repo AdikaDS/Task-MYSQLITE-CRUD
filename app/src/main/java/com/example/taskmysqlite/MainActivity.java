@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void displayData() {
         sqLiteDatabase = mDatabaseHelper.getReadableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM " + TABLE_NAME , null);
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM " + TABLE_NAME + "", null);
         ArrayList<Game> game = new ArrayList<>();
         while (cursor.moveToNext()) {
             int id = cursor.getInt(0);
